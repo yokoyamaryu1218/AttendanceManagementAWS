@@ -1,0 +1,21 @@
+<!-- https://tailwindcomponents.com/component/input-field -->
+<!-- admin側　復職確認画面のblade -->
+<x-app-layout>
+    <x-slot name="header">
+    </x-slot>
+
+    <body>
+        @foreach($employee_lists as $emplo)
+        <div class="max-w-2xl mx-auto my-3 bg-gray-100 p-16">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h1 class="sm:text-4xl text-2xl font-medium title-font mb-2 text-gray-900">復職確認画面</h1>
+                <div class="sm:text-base text-xs">以下の従業員の復職処理を行います。<BR class="sma">よろしいでしょうか。</div>
+            </div>
+            <form method="POST" action="{{ route('admin.reinstatement_action',[$emplo->emplo_id])}}">
+                <!-- 復職・退職確認画面に出す従業員詳細画面のbladeへ -->
+                @include('menu.emplo_detail.emplo_detail07')
+            </form>
+        </div>
+        @endforeach
+    </body>
+</x-app-layout>
