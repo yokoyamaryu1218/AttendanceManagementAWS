@@ -17,7 +17,7 @@ class RedirectToHttps
     {
         // ここから追記
         //このhandleメソッドで判別
-        if (!$this->is_ssl() && config('app.env') === 'local') {
+        if (!$this->is_ssl() && config('app.env') === 'production') {
             return redirect('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         }
         // ここまで追記
